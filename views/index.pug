@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  table
+    thead
+      th First
+      th Last
+      th Title
+      th Address
+      th Number
+      th Year Hired
+    tbody
+    each employee in employees
+      tr
+        td= employee.first_name
+        td= employee.last_name
+        td= employee.job_title
+        td
+          div #{employee.address_one}
+          div #{employee.address_two}
+          div= `${employee.city}, ${employee.state} ${employee.zip}`
+        td= employee.phone_number
+        td= employee.year_hired
+
