@@ -10,6 +10,18 @@ module.exports.displayEmployees = async function(req, res) {
 module.exports.renderAddEmployeeForm = function(req, res) {
     res.render('createUserForm',
         {
+            employee: {
+                first_name: '',
+                last_name: '',
+                job_title: jobtitles[0],
+                address_one: '',
+                address_two: '',
+                city: '',
+                state: states[0],
+                zip: '',
+                phone_number: '',
+                year_hired: ''
+            },
             jobtitles,
             stateslist: states
         });
@@ -19,7 +31,7 @@ module.exports.addEmployee = async function(req, res) {
     await Employee.create(
         {
             first_name: req.body.first_name,
-            last_name: req.body.req.body.last_name,
+            last_name: req.body.last_name,
             job_title: req.body.job_title,
             address_one: req.body.address_one,
             address_two: req.body.address_two,
@@ -46,7 +58,7 @@ module.exports.updateEmployee = async function(req, res) {
     await Employee.update(
         {
             first_name: req.body.first_name,
-            last_name: req.body.req.body.last_name,
+            last_name: req.body.last_name,
             job_title: req.body.job_title,
             address_one: req.body.address_one,
             address_two: req.body.address_two,
@@ -62,4 +74,13 @@ module.exports.updateEmployee = async function(req, res) {
             }
         });
     res.redirect('/');
+}
+
+module.exports.deleteEmployee = async function(req, res) {
+    await Employee.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.redirect('/')
 }
