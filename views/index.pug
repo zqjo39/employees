@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  div.tabletitle
+    div Employees
+    div
+      a(href = '/add') Add Employee
   table
     thead
       th First
@@ -9,6 +13,7 @@ block content
       th Address
       th Number
       th Year Hired
+      th Actions
     tbody
     each employee in employees
       tr
@@ -21,4 +26,6 @@ block content
           div= `${employee.city}, ${employee.state} ${employee.zip}`
         td= employee.phone_number
         td= employee.year_hired
-
+        td
+          div.actions
+            a(href = `/update/${employee.id}`) Edit

@@ -19,6 +19,7 @@ table {
   border-radius: 8px;
   background-color: white;
   border-collapse: collapse;
+  width: 100%;
 }
 
 td:first-child, th:first-child {
@@ -40,4 +41,21 @@ thead {
 tr:nth-child(2n) td{
   background-color: #E5E7EB;
   color: #1F2937;
+}
+
+.tabletitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.tabletitle a {
+  display: block;
+  background-color: #115E59;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-decoration: none;
 }
