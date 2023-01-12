@@ -20,7 +20,8 @@ module.exports.renderAddEmployeeForm = function(req, res) {
                 state: states[0],
                 zip: '',
                 phone_number: '',
-                year_hired: ''
+                year_hired: '',
+                dob: ''
             },
             jobtitles,
             stateslist: states
@@ -39,7 +40,8 @@ module.exports.addEmployee = async function(req, res) {
             state: req.body.state,
             zip: req.body.zip,
             phone_number: req.body.phone_number,
-            year_hired: req.body.year_hired
+            year_hired: req.body.year_hired,
+            dob: new Date(req.body.dob)
         }
     );
     res.redirect('/');
@@ -66,7 +68,8 @@ module.exports.updateEmployee = async function(req, res) {
             state: req.body.state,
             zip: req.body.zip,
             phone_number: req.body.phone_number,
-            year_hired: req.body.year_hired
+            year_hired: req.body.year_hired,
+            dob: new Date(req.body.dob)
         },
         {
             where: {

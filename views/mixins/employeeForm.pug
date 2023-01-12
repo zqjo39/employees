@@ -9,6 +9,10 @@ mixin employeeForm(url, employee, jobtitles, stateslist)
                 label(for = 'last_name') Last Name:
                 input(id = 'last_name' name = 'last_name' type = 'text' value = employee.last_name)
 
+        div.date-of-birth
+            label(for = 'dob') Date of Birth:
+            input(type = 'date' name = 'dob' id = 'dob' value = employee.dob)
+
         label(for = 'job_title') Job Title:
         select(id = 'job_title' name = 'job_title')
             each title in jobtitles

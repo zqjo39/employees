@@ -9,6 +9,7 @@ block content
     thead
       th First
       th Last
+      th Date of Birth
       th Title
       th Address
       th Number
@@ -19,6 +20,7 @@ block content
       tr
         td= employee.first_name
         td= employee.last_name
+        td= employee.dob
         td= employee.job_title
         td
           div #{employee.address_one}
